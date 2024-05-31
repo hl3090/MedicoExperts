@@ -1,0 +1,70 @@
+﻿{% extends 'myapp/patient_index.html' %}    
+
+{% block content %}
+<section class="content home">
+            <div class="block-header">
+                <div class="row">
+                    <div class="col-lg-5 col-md-5 col-sm-12">
+                        <h2>Appointments <small class="text-muted">Welcome to Oreo</small></h2>
+                    </div>            
+                    <div class="col-lg-7 col-md-7 col-sm-12 text-right">
+                        
+                        
+                        
+                        <ul class="breadcrumb float-md-right">
+                            <li class="breadcrumb-item"><a href="..\dashboard\index.html"><i class="zmdi zmdi-home"></i> Doctor</a></li>
+                                                         
+                                                                                        <li class="breadcrumb-item active">Appointments</li>
+                                                    </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">                
+                
+    <div class="row clearfix">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="header">
+                    <h2><strong>ALL APPOINTMENT</strong> </h2>
+                    
+                </div>
+                <div class="body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
+                            <thead>
+                                <tr>
+                                    <th>Sr. No</th>
+                                    <th>Patient Name</th>
+                                    <th>Doctor Name</th>
+                                    <th>Date</th>
+                                    <th>Time</th>
+                                    <th>Remarks</th>
+                                    <th>STATUS</th>                                            
+                                    
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {% for a in a_all %}
+                                <tr>
+                                    <td>{{a.id}}</td>
+                                    <td>{{a.pid.username}}</td>
+                                    <td>Dr. {{a.did.username}}</td>
+                                    <td>{{a.date}}</td>
+                                    <td>{{a.time}}</td>
+                                  
+                                    <td>{{a.remarks}}</td>
+                                    <td style="color: blue;">{{a.status}}</td>
+                                   
+                                </tr>
+                               {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+            </div>
+</section>
+{% endblock %}
